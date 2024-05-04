@@ -11,3 +11,13 @@ groups:
 system_info:
   default_user:
     groups: [docker]
+
+users:
+  - default
+  - name: vscode
+    primary_group: vscode
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin, docker
+    ssh_import_id:
+      - gh:{{github}}
+    lock_passwd: true
