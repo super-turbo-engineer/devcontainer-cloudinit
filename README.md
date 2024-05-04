@@ -1,9 +1,12 @@
 # devcontainer-cloudinit
 cloudinit a linux VM to be a remote docker agent for vscode devcontainers
+* this is an easy way to run linux devcontainers if you are on windows or mac, and you dont need to use local docker
+* it can also be an alternative to vscode tunnels if you like the idea but dont trust it
 
-* setting the docker context to a remote machine using ssh protocol
+TL;DR - we will:
+* set the docker context to a remote machine using ssh protocol
 * vscode devcontainers will use the remote machine
-* this machine can be a linux virtual machine accessed from windows or macos
+* the machine can be a linux virtual machine accessed from windows or macos
 * the virtual machine can be easily created using multipass and configured at start up via cloud-init
 
 https://code.visualstudio.com/docs/containers/ssh
@@ -12,16 +15,16 @@ https://stackoverflow.com/questions/24418815/how-do-i-install-docker-using-cloud
 
 https://cloudinit.readthedocs.io/en/latest/reference/examples.html#including-users-and-groups
 
-This is using multipass to manage virutal machines in a platform agnostic
-It uses your ssh public key from github for ssh authentication
-Update the user-data file from this repo to reference your github username
+This is using multipass to abstract the management of virtal machines in a platform agnostic way
+It uses your ssh public key from github for ssh authentication - you can also use a public key directly if preferred
+Remeber to update the user-data file from this repo to reference your github username or this wont work
 ```
 //start a new virtual machine with multipass, and bootstrap it with the cloud config from this repository
 multipass launch -n devcontainer --cloud-init user-data
 ```
 
 Update you .ssh/config to allow connections to the fresh machine with your github identity file
-(Hostname mshome.net below is for a virtual machine setup on hyperv/windows)
+(Hostname mshome.net below is for a virtual machine setup on hyperv/windows 🤮)
 ```
 Host devcontainer
   HostName devcontainer.mshome.net
