@@ -21,3 +21,4 @@ users:
     ssh_import_id:
       - gh:{{github}}
     lock_passwd: true
+    shell: /bin/bash
