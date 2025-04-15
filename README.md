@@ -16,10 +16,16 @@ https://stackoverflow.com/questions/24418815/how-do-i-install-docker-using-cloud
 
 https://cloudinit.readthedocs.io/en/latest/reference/examples.html#including-users-and-groups
 
-Install docker cli binaries (dont need docker desktop if you dont want it)
+----
+### Install docker
+
+If not already installed, get the docker cli binaries (dont need docker desktop if you dont want it)
 
 https://docs.docker.com/engine/install/binaries/
 
+for windows, download the zip file and add the docker.exe location to your path
+
+### Linux VM
 This is using multipass to abstract the management of virtual machines in a platform agnostic way
 It uses your ssh public key from github for ssh authentication - you can also use a public key directly if preferred
 Remeber to update the user-data file from this repo to reference your github username or this wont work
@@ -28,6 +34,7 @@ Remeber to update the user-data file from this repo to reference your github use
 multipass launch -n devcontainer --cloud-init user-data
 ```
 
+### Enable SSH
 Update you .ssh/config to allow connections to the fresh machine with your github identity file
 (Hostname mshome.net below is for a virtual machine setup on hyperv/windows 🤮)
 ```
@@ -43,6 +50,7 @@ Check that it works and allow the thumbprint
 ssh vscode@devcontainer
 ```
 
+### Verify remote docker 
 Setup a docker context and make sure it is working
 ```
 //connect local machine to the remote docker
