@@ -31,7 +31,7 @@ It uses your ssh public key from github for ssh authentication - you can also us
 Remeber to update the user-data file from this repo to reference your github username or this wont work
 ```
 //start a new virtual machine with multipass, and bootstrap it with the cloud config from this repository
-multipass launch -n devcontainer --cloud-init user-data
+multipass launch -n devcontainer --cloud-init user-data --cpus 6 --memory 16G --disk 200G
 ```
 
 ### Enable SSH
@@ -61,7 +61,10 @@ docker context use devcontainer
 docker container list
 ```
 
+### Use devcontainers from vscode
 Now you can clone a repo into a remote container from vscode - and it will run on the virtualized linux machine via docker
+Always use the option `Clone repository in container volume` to ensure a performant disk for the vscode server running on the virtual machine.
+
 
 Advanced stuff detailed here:
 https://code.visualstudio.com/docs/devcontainers/devcontainer-cli
