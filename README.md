@@ -1,9 +1,10 @@
 # devcontainer-cloudinit
 cloudinit a linux VM to be a remote docker agent for vscode devcontainers
-* this is an easy way to run linux devcontainers if you are on windows or mac, and you dont need to use local docker
+* this is an easy way to run linux devcontainers if you are on windows or mac, and you dont need to use local docker desktop
 * it can also be an alternative to vscode tunnels if you like the idea but dont trust it
 
 TL;DR - we will:
+* install docker binaries
 * set the docker context to a remote machine using ssh protocol
 * vscode devcontainers will use the remote machine
 * the machine can be a linux virtual machine accessed from windows or macos
@@ -15,7 +16,11 @@ https://stackoverflow.com/questions/24418815/how-do-i-install-docker-using-cloud
 
 https://cloudinit.readthedocs.io/en/latest/reference/examples.html#including-users-and-groups
 
-This is using multipass to abstract the management of virtal machines in a platform agnostic way
+Install docker cli binaries (dont need docker desktop if you dont want it)
+
+https://docs.docker.com/engine/install/binaries/
+
+This is using multipass to abstract the management of virtual machines in a platform agnostic way
 It uses your ssh public key from github for ssh authentication - you can also use a public key directly if preferred
 Remeber to update the user-data file from this repo to reference your github username or this wont work
 ```
